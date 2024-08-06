@@ -1,0 +1,11 @@
+.navbar {
+    display: flex;
+}
+
+.logo-container {
+    display: flex;
+}
+
+.logo-container h2 {
+    font-size: 2rem;
+}
