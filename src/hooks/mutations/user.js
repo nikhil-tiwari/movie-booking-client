@@ -13,7 +13,47 @@ export const useUserSignin = () => {
             const token = data.token;
             localStorage.setItem('token', token);
             await queryClient.invalidateQueries({ queryKey: 'user' })
+        },
+        onError: async (error) => {
+            console.error('Signin error:', error.response?.data || error.message);
         }
     })
     return mutation;
 }
+
+
+export const useUserSignup = () => {
+    const queryClient = useQueryClient();
+
+    const mutation = useMutation({
+        mutationFn: async function ({ firstName, lastName, email, password, city }) {
+            console.log({
+                firstName: firstName, 
+                lastName: lastName, 
+                email: email, 
+                password: password, 
+                location: { city: city }
+            });
+            const data = await apiV1Instance.post('/auth/signup', { 
+                firstName: firstName, 
+                lastName: lastName, 
+                email: email, 
+                password: password, 
+                location: {city: city} 
+            });
+            return data;
+        },
+        onSuccess: async ({ data }) => {
+            console.log("Data from mutation", data);
+            const token = data.token;
+            localStorage.setItem('token', token);
+            await queryClient.invalidateQueries({ queryKey: 'user' });
+        },
+        onError: (error) => {
+            // Handle error logic
+            console.error('Signup error:', error);
+        }
+    });
+
+    return mutation;
+};
