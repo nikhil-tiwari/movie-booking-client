@@ -1,6 +1,6 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useUserSignin } from "../hooks/mutations/user";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Signin = () => {
   const { mutateAsync: signinUserAsync, isError, error } = useUserSignin();
@@ -9,10 +9,12 @@ const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const token = localStorage.getItem("token");
-  if (token) {
-    navigate("/");
-  }
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/");
+    }
+  }, [navigate])
 
   const handleFormSubmit = useCallback(
     async (e) => {
@@ -40,7 +42,7 @@ const Signin = () => {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+              className="w-full p-2 bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white rounded-xl"
             />
           </div>
           <div>
@@ -50,24 +52,30 @@ const Signin = () => {
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+              className="w-full p-2 bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white rounded-xl"
             />
           </div>
           <div className="flex flex-col space-y-4">
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full mt-4 bg-blue-600 text-white py-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-xl"
             >
               Login
             </button>
-            <div className="text-center text-gray-400">or</div>
-            <button
+            {/* <div className="text-center text-gray-400">or</div> */}
+            {/* <button
               type="button"
               onClick={() => navigate("/signup")}
-              className="w-full bg-transparent border border-blue-600 text-blue-600 py-2 rounded-md hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full bg-transparent border border-blue-600 text-blue-600 py-2 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-xl"
             >
               Create an Account
-            </button>
+            </button> */}
+            <p className="text-gray-400 text-center">
+              Don't have an account?{" "}
+              <Link to="/signup" className="text-blue-500 hover:underline">
+                Click here
+              </Link>
+            </p>
           </div>
         </form>
         {isError && (

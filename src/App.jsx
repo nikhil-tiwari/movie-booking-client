@@ -3,8 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import { useCurrentUser } from "./hooks/query/user";
 import Signin from "./screens/Signin";
 import Signup from "./screens/Signup";
-import Home from "./screens/Home/Home";
+import Home from "./screens/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Admin from "./screens/Admin";
 
 function App() {
   const { user } = useCurrentUser();
@@ -25,6 +26,15 @@ function App() {
           element={
             <ProtectedRoute>
               <Home userProfile={user} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              {" "}
+              <Admin userProfile={user} />{" "}
             </ProtectedRoute>
           }
         />

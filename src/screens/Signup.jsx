@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import { useUserSignup } from "../hooks/mutations/user";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const { mutateAsync: signupUserAsync, isError, error } = useUserSignup();
@@ -88,14 +88,20 @@ const Signup = () => {
             >
               Create Account
             </button>
-            <div className="text-center text-gray-400">or</div>
-            <button
+            {/* <div className="text-center text-gray-400">or</div> */}
+            {/* <button
               type="button"
               onClick={() => navigate("/signin")}
               className="w-full bg-transparent border border-blue-600 text-blue-600 py-2 rounded-md hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               Sign In
-            </button>
+            </button> */}
+            <p className="text-gray-400 text-center">
+              Already have an account?{" "}
+              <Link to="/signin" className="text-blue-500 hover:underline">
+                Click here
+              </Link>
+            </p>
           </div>
         </form>
         {isError && (
