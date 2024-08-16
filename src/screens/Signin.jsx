@@ -32,7 +32,7 @@ const Signin = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="bg-gray-900 p-8 rounded-xl shadow-lg max-w-md w-full border border-gray-700">
+      <div className="bg-gray-900 p-8 rounded shadow-lg max-w-md w-full border border-gray-700">
         <h2 className="text-2xl font-bold text-white mb-6 text-center">Sign In</h2>
         <form onSubmit={handleFormSubmit} className="space-y-4">
           <div>
@@ -42,7 +42,7 @@ const Signin = () => {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white rounded-xl"
+              className="w-full p-2 bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white rounded"
             />
           </div>
           <div>
@@ -52,24 +52,16 @@ const Signin = () => {
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-2 bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white rounded-xl"
+              className="w-full p-2 bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 text-white rounded"
             />
           </div>
           <div className="flex flex-col space-y-4">
             <button
               type="submit"
-              className="w-full mt-4 bg-blue-600 text-white py-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-xl"
+              className="w-full mt-4 bg-blue-600 text-white py-2 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded"
             >
               Login
             </button>
-            {/* <div className="text-center text-gray-400">or</div> */}
-            {/* <button
-              type="button"
-              onClick={() => navigate("/signup")}
-              className="w-full bg-transparent border border-blue-600 text-blue-600 py-2 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-xl"
-            >
-              Create an Account
-            </button> */}
             <p className="text-gray-400 text-center">
               Don't have an account?{" "}
               <Link to="/signup" className="text-blue-500 hover:underline">

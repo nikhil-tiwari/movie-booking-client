@@ -28,7 +28,7 @@ const Signup = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="bg-gray-900 p-8 rounded-xl shadow-lg max-w-md w-full border border-gray-700">
+      <div className="bg-gray-900 p-8 rounded shadow-lg max-w-md w-full border border-gray-700">
         <h2 className="text-2xl font-bold text-white mb-6 text-center">Create an Account</h2>
         <form onSubmit={handleFormSubmit} className="space-y-4">
           <div>
@@ -38,7 +38,7 @@ const Signup = () => {
               placeholder="Enter your first name"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
-              className="w-full p-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+              className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
             />
           </div>
           <div>
@@ -48,7 +48,7 @@ const Signup = () => {
               placeholder="Enter your last name"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
-              className="w-full p-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+              className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
             />
           </div>
           <div>
@@ -58,7 +58,7 @@ const Signup = () => {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full p-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+              className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
             />
           </div>
           <div>
@@ -68,7 +68,7 @@ const Signup = () => {
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full p-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+              className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
             />
           </div>
           <div>
@@ -78,24 +78,16 @@ const Signup = () => {
               placeholder="Enter your city"
               value={city}
               onChange={(e) => setCity(e.target.value)}
-              className="w-full p-2 bg-gray-700 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+              className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
             />
           </div>
           <div className="flex flex-col space-y-4">
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full mt-4 bg-blue-600 text-white py-2 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               Create Account
             </button>
-            {/* <div className="text-center text-gray-400">or</div> */}
-            {/* <button
-              type="button"
-              onClick={() => navigate("/signin")}
-              className="w-full bg-transparent border border-blue-600 text-blue-600 py-2 rounded-md hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              Sign In
-            </button> */}
             <p className="text-gray-400 text-center">
               Already have an account?{" "}
               <Link to="/signin" className="text-blue-500 hover:underline">

@@ -6,6 +6,7 @@ import Signup from "./screens/Signup";
 import Home from "./screens/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Admin from "./screens/Admin";
+import ListedMovie from "./screens/ListedMovie";
 
 function App() {
   const { user } = useCurrentUser();
@@ -35,6 +36,14 @@ function App() {
             <ProtectedRoute>
               {" "}
               <Admin userProfile={user} />{" "}
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/addmovie"
+          element={
+            <ProtectedRoute>
+              <ListedMovie userProfile={user} />
             </ProtectedRoute>
           }
         />
